@@ -8,7 +8,7 @@
 ## Basic Usage
 
 ```
-import {ProLogJs} from "../index.js";
+import {ProLogJs} from "dariodigulio/pro-log-js";
 
 ProLogJs.log('Hello, world', 's');
 ```

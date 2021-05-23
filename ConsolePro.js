@@ -4,9 +4,18 @@ exports.ConsolePro = void 0;
 var Utils_1 = require("./Utils");
 var fs = require("fs");
 var ConsolePro = /** @class */ (function () {
-    function ConsolePro(file) {
-        file ? this.filePath = file : this.filePath = '';
+    /**
+     * @param {string} filePath
+     * @returns {ConsolePro} ConsolePro instance
+     */
+    function ConsolePro(filePath) {
+        filePath ? this.filePath = filePath : this.filePath = '';
     }
+    /**
+     * @param {string} message Any text
+     * @param {string} status [s, w, e, i, d]
+     * @return void If has instance of file, log in file, else log in console.
+     */
     ConsolePro.prototype.log = function (message, status) {
         if (status === void 0) { status = ''; }
         var messageToLog = this.createLog(message, status);
@@ -17,6 +26,11 @@ var ConsolePro = /** @class */ (function () {
             this.consoleLog(messageToLog);
         }
     };
+    /**
+     * @param {string} message Any text
+     * @param {string} status [s, w, e, i, d]
+     * @return void Log in console.
+     */
     ConsolePro.log = function (message, status) {
         if (status === void 0) { status = ''; }
         var messageToLog = ConsolePro.createLog(message, status);

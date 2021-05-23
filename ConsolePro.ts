@@ -4,10 +4,19 @@ import * as fs from 'fs';
 export class ConsolePro {
     private filePath;
 
-    constructor(file?: string) {
-        file ? this.filePath = file : this.filePath = '';
+    /**
+     * @param {string} filePath
+     * @returns {ConsolePro} ConsolePro instance
+     */
+    constructor(filePath?: string) {
+        filePath ? this.filePath = filePath : this.filePath = '';
     }
 
+    /**
+     * @param {string} message Any text
+     * @param {string} status [s, w, e, i, d]
+     * @return void If has instance of file, log in file, else log in console.
+     */
     public log(message, status = '') {
         let messageToLog = this.createLog(message, status);
         if (this.filePath) {
@@ -17,6 +26,11 @@ export class ConsolePro {
         }
     }
 
+    /**
+     * @param {string} message Any text
+     * @param {string} status [s, w, e, i, d]
+     * @return void Log in console.
+     */
     public static log(message, status = '') {
         let messageToLog = ConsolePro.createLog(message, status);
         ConsolePro.consoleLog(messageToLog);
