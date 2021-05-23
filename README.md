@@ -8,17 +8,17 @@
 ## Basic Usage
 
 ```
-import {ProLogJs} from "dariodigulio/pro-log-js";
+import {ProLog} from './ProLog.mjs';
 
-ProLogJs.log('Hello, world', 's');
+ProLog.log('Hello, world', 's');
 ```
 
 ## More Usages
 
 ```
-import {ProLogJs} from "../index.js";
+import {ProLog} from './ProLog.mjs';
 
-const MyLogger = new ProLogJs('./log.log');
+const MyLogger = new ProLog('./log.log');
 MyLogger.log('Logger in file');
 ```
 
@@ -34,4 +34,4 @@ MyLogger.log('Logger in file');
     * default: [LOG]
     
 ## Result 
-![image](./preview.png)
+![preview](./preview.png)

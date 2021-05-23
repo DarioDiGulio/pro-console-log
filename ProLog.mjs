@@ -1,14 +1,26 @@
-import {Utils} from "./Utils";
-import * as fs from 'fs';
+import fs from 'fs';
 
-export class ConsolePro {
-    private filePath;
+const getNow = () => {
+    const date = new Date();
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    const hour = date.getHours();
+    const minute = date.getMinutes();
+    const second = date.getSeconds();
+
+    return `${day}/${month}/${year} ${hour}:${minute}:${second}`;
+}
+
+export class ProLog {
+    filePath;
+    messageConsoleToLog;
 
     /**
      * @param {string} filePath
      * @returns {ConsolePro} ConsolePro instance
      */
-    constructor(filePath?: string) {
+    constructor(filePath = '') {
         filePath ? this.filePath = filePath : this.filePath = '';
     }
 
@@ -17,7 +29,7 @@ export class ConsolePro {
      * @param {string} status [s, w, e, i, d]
      * @return void If has instance of file, log in file, else log in console.
      */
-    public log(message, status = '') {
+    log(message, status = '') {
         let messageToLog = this.createLog(message, status);
         if (this.filePath) {
             this.writeLog(messageToLog);
@@ -29,24 +41,16 @@ export class ConsolePro {
     /**
      * @param {string} message Any text
      * @param {string} status [s, w, e, i, d]
-     * @return void Log in console.
+     * @return void If has instance of file, log in file, else log in console.
      */
-    public static log(message, status = '') {
-        let messageToLog = ConsolePro.createLog(message, status);
-        ConsolePro.consoleLog(messageToLog);
+    static log(message, status = '') {
+        let messageToLog = ProLog.createLog(message, status);
+        ProLog.consoleLog(messageToLog);
     }
 
-    private static createLog(userMessage, status) {
+    createLog(userMessage, status) {
         let messageLog = '';
-        const date = Utils.getNow();
-        status = status.toLowerCase();
-        messageLog = ConsolePro.createConsoleLog(date, userMessage, status);
-        return messageLog;
-    }
-
-    private createLog(userMessage, status) {
-        let messageLog = '';
-        const date = Utils.getNow();
+        const date = getNow();
         status = status.toLowerCase();
         if (this.filePath) {
             messageLog = this.createPlainTextLog(date, userMessage, status);
@@ -56,25 +60,33 @@ export class ConsolePro {
         return messageLog;
     }
 
-    private createConsoleLog(date: string, userMessage, status) {
-        let messageConsoleToLog = '';
-        const endMessage = ` - ${userMessage} \u001b[0m`;
-        if (status === 'w') {
-            messageConsoleToLog = `\u001b[0m${date} \u001b[33m[WARNING]\u001b[0m${endMessage}`;
-        } else if (status === 's') {
-            messageConsoleToLog = `\u001b[0m${date} \u001b[32m[SUCCESS]\u001b[0m${endMessage}`;
-        } else if (status === 'e') {
-            messageConsoleToLog = `\u001b[0m${date} \u001b[31m[ERROR]\u001b[0m${endMessage}`;
-        } else if (status === 'i') {
-            messageConsoleToLog = `\u001b[0m${date} \u001b[34m[INFO]\u001b[0m${endMessage}`;
-        } else if (status == 'd') {
-            messageConsoleToLog = `\u001b[0m${date} \u001b[35m[DEBUG]\u001b[0m${endMessage}`;
-        } else {
-            messageConsoleToLog = `\u001b[0m${date} [LOG]${endMessage}`;
-        }
-        return messageConsoleToLog;
+    static createLog(userMessage, status) {
+        let messageLog = '';
+        const date = getNow();
+        status = status.toLowerCase();
+        messageLog = ProLog.createConsoleLog(date, userMessage, status);
+        return messageLog;
     }
-    private static createConsoleLog(date: string, userMessage, status) {
+
+    createConsoleLog(date, userMessage, status) {
+        const endMessage = ` - ${userMessage} \u001b[0m`;
+        if (status === 'w') {
+            this.messageConsoleToLog = `\u001b[0m${date} \u001b[33m[WARNING]\u001b[0m${endMessage}`;
+        } else if (status === 's') {
+            this.messageConsoleToLog = `\u001b[0m${date} \u001b[32m[SUCCESS]\u001b[0m${endMessage}`;
+        } else if (status === 'e') {
+            this.messageConsoleToLog = `\u001b[0m${date} \u001b[31m[ERROR]\u001b[0m${endMessage}`;
+        } else if (status === 'i') {
+            this.messageConsoleToLog = `\u001b[0m${date} \u001b[34m[INFO]\u001b[0m${endMessage}`;
+        } else if (status === 'd') {
+            this.messageConsoleToLog = `\u001b[0m${date} \u001b[35m[DEBUG]\u001b[0m${endMessage}`;
+        } else {
+            this.messageConsoleToLog = `\u001b[0m${date} [LOG]${endMessage}`;
+        }
+        return this.messageConsoleToLog;
+    }
+
+    static createConsoleLog(date, userMessage, status) {
         let messageConsoleToLog = '';
         const endMessage = ` - ${userMessage} \u001b[0m`;
         if (status === 'w') {
@@ -85,7 +97,7 @@ export class ConsolePro {
             messageConsoleToLog = `\u001b[0m${date} \u001b[31m[ERROR]\u001b[0m${endMessage}`;
         } else if (status === 'i') {
             messageConsoleToLog = `\u001b[0m${date} \u001b[34m[INFO]\u001b[0m${endMessage}`;
-        } else if (status == 'd') {
+        } else if (status === 'd') {
             messageConsoleToLog = `\u001b[0m${date} \u001b[35m[DEBUG]\u001b[0m${endMessage}`;
         } else {
             messageConsoleToLog = `\u001b[0m${date} [LOG]${endMessage}`;
@@ -93,7 +105,7 @@ export class ConsolePro {
         return messageConsoleToLog;
     }
 
-    private createPlainTextLog(date: string, userMessage, status) {
+    createPlainTextLog(date, userMessage, status) {
         let messageTextPlainToLog = '';
         const endMessage = ` - ${userMessage}`;
         if (status === 'w') {
@@ -113,15 +125,16 @@ export class ConsolePro {
         return messageTextPlainToLog;
     }
 
-    private writeLog(messageToLog) {
-        fs.appendFileSync(this.filePath, `${messageToLog}\n`, 'ascii');
+    writeLog(messageToLog) {
+        fs.appendFileSync(this.filePath, `${messageToLog}\n`);
     }
 
-    private consoleLog(messageToLog) {
+    consoleLog(messageToLog) {
         console.log(messageToLog);
     }
 
-    private static consoleLog(messageToLog) {
+    static consoleLog(messageToLog) {
         console.log(messageToLog);
     }
+
 }

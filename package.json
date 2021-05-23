@@ -1,23 +1,15 @@
 {
+  "type": "module",
   "name": "@dariodigulio/pro-log-js",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A module that allows writing logs to the console or to a file powerfully.",
   "main": "index.js",
-  "scripts": {
-    "dev": "nodemon --experimental-modules index.js",
-    "watch": "tsc -p tsconfig.json -w",
-    "test": "node --experimental-modules Test.js"
-  },
+  "scripts": {},
   "keywords": ["log", "console.log", "javascript", "colors"],
   "author": "Dario Di Gulio",
   "license": "ISC",
   "repository": "https://github.com/DarioDiGulio/pro-console-log",
   "dependencies": {
-    "@types/node": "^7.0.5",
-    "fs": "*",
-    "typescript": "^4.2.4"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.7"
+    "fs": "*"
   }
 }
