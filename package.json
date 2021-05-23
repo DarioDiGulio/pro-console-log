@@ -1,11 +1,12 @@
 {
   "name": "@dariodigulio/pro-log-js",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "A module that allows writing logs to the console or to a file powerfully.",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --experimental-modules index.js",
-    "watch": "tsc -p tsconfig.json -w"
+    "watch": "tsc -p tsconfig.json -w",
+    "test": "node --experimental-modules Test.js"
   },
   "keywords": ["log", "console.log", "javascript", "colors"],
   "author": "Dario Di Gulio",

@@ -1,5 +1,3 @@
 import {ConsolePro} from "./ConsolePro";
 
-export default {
-    ConsolePro,
-}
+export const ProLogJs = new ConsolePro();

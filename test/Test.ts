@@ -1,5 +1,8 @@
 import {ConsolePro} from "../ConsolePro";
+// @ts-ignore
+import {ProLogJs} from "../index.js";
 
+console.log('-------------------------------- PROBANDO EL CÓDIGO --------------------------------')
 console.log('-------------------------------- Console Instance --------------------------------')
 const logger = new ConsolePro();
 logger.log('Hola mundo', 'd');
@@ -32,3 +35,7 @@ ConsolePro.log('Hola mundo', 'w');
 ConsolePro.log('Hola mundo', 's');
 ConsolePro.log('Hola mundo', 'e');
 ConsolePro.log('Hola mundo');
+
+console.log('-------------------------------- PROBANDO EL EXPORT --------------------------------')
+
+ProLogJs.log('Hola', 's');
