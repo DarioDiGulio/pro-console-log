@@ -1,5 +1,5 @@
 {
-  "name": "pro-log-js",
+  "name": "@dariodigulio/pro-log-js",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,8 +7,8 @@
     "dev": "nodemon --experimental-modules index.js",
     "watch": "tsc -p tsconfig.json -w"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["log", "console.log", "javascript", "colors"],
+  "author": "Dario Di Gulio",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^7.0.5",
