@@ -1,0 +1,21 @@
+{
+  "name": "pro-console-log",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --experimental-modules index.js",
+    "watch": "tsc -p tsconfig.json -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^7.0.5",
+    "fs": "*",
+    "typescript": "^4.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
