@@ -28,13 +28,13 @@ loggerTwo.log('Hola', 'd');
 loggerTwo.log('Hola');
 
 console.log('-------------------------------- Console Static --------------------------------')
-ConsolePro.log('Hola mundo', 'd');
-ConsolePro.log('Hola mundo', 'D');
-ConsolePro.log('Hola mundo', 'i');
-ConsolePro.log('Hola mundo', 'w');
-ConsolePro.log('Hola mundo', 's');
-ConsolePro.log('Hola mundo', 'e');
-ConsolePro.log('Hola mundo');
+ConsolePro.log('Hello world!', 'd');
+ConsolePro.log('Hello world!', 'D');
+ConsolePro.log('Hello world!', 'i');
+ConsolePro.log('Hello world!', 'w');
+ConsolePro.log('Hello world!', 's');
+ConsolePro.log('Hello world!', 'e');
+ConsolePro.log('Hello world!');
 
 console.log('-------------------------------- PROBANDO EL EXPORT --------------------------------')
 

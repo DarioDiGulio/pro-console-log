@@ -33,3 +33,5 @@ MyLogger.log('Logger in file');
     * `d|D`: [DEBUG]  
     * default: [LOG]
     
+## Result 
+![image](./preview.png)
