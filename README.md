@@ -8,7 +8,7 @@
 ## Basic Usage
 
 ```
-import {ProLog} from './ProLog.mjs';
+import { ProLog } from "@dariodigulio/pro-log-js";
 
 ProLog.log('Hello, world', 's');
 ```
@@ -16,7 +16,7 @@ ProLog.log('Hello, world', 's');
 ## More Usages
 
 ```
-import {ProLog} from './ProLog.mjs';
+import { ProLog } from "@dariodigulio/pro-log-js";
 
 const MyLogger = new ProLog('./log.log');
 MyLogger.log('Logger in file');

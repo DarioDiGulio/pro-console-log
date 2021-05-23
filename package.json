@@ -3,7 +3,7 @@
   "name": "@dariodigulio/pro-log-js",
   "version": "1.1.1",
   "description": "A module that allows writing logs to the console or to a file powerfully.",
-  "main": "index.js",
+  "main": "ProLog.mjs",
   "scripts": {},
   "keywords": ["log", "console.log", "javascript", "colors"],
   "author": "Dario Di Gulio",
