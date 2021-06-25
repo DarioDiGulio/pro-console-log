@@ -11,6 +11,11 @@
 import { ProLog } from "@dariodigulio/pro-log-js";
 
 ProLog.log('Hello, world', 's');
+ProLog.log('Log message');
+Prolog.success('Success message);
+Prolog.error('Error message');
+Prolog.warning('Warning message');
+Prolog.debug('Debug message');
 ```
 
 ## More Usages
@@ -20,6 +25,11 @@ import { ProLog } from "@dariodigulio/pro-log-js";
 
 const MyLogger = new ProLog('./log.log');
 MyLogger.log('Logger in file');
+MyLogger.log('Log message');
+MyLogger.success('Success message);
+MyLogger.error('Error message');
+MyLogger.warning('Warning message');
+MyLogger.debug('Debug message');
 ```
 
 ## Params
