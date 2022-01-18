@@ -1,10 +1,5 @@
 const fs = require('fs');
-const {
-    setUpMessage,
-    createMessage,
-    createLog,
-    consoleLog,
-} = require('./Helper')
+const { setUpMessage, createMessage, createLog, consoleLog } = require('./Helper')
 
 class ProLog {
     #filePath;
